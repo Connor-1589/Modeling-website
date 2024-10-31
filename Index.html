@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Works Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box !important;
+    }
+
+    html, body {
+      height: 100%;
+      background-color: #171717;
+      color: #fff;
+    }
+
+    body {
+      font-family: 'Quicksand', sans-serif;
+      line-height: 1.6;
+      position: relative;
+      overflow-y: auto;
+    }
+
+    .lines {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      margin: auto;
+      width: 90vw;
+    }
+
+    .line {
+      position: absolute;
+      width: 1px;
+      height: 100%;
+      top: 0;
+      left: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      overflow: hidden;
+    }
+
+    .line::after {
+      content: '';
+      display: block;
+      position: absolute;
+      height: 15vh;
+      width: 100%;
+      top: -50%;
+      left: 0;
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #ffffff 75%, #ffffff 100%);
+      animation: drop 7s 0s infinite;
+      animation-fill-mode: forwards;
+      animation-timing-function: cubic-bezier(0.4, 0.26, 0, 0.97);
+    }
+
+    .line:nth-child(1) {
+      margin-left: -25%;
+    }
+
+    .line:nth-child(1)::after {
+      animation-delay: 2s;
+    }
+
+    .line:nth-child(3) {
+      margin-left: 25%;
+    }
+
+    .line:nth-child(3)::after {
+      animation-delay: 2.5s;
+    }
+
+    @keyframes drop {
+      0% {
+        top: -50%;
+      }
+      100% {
+        top: 110%;
+      }
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    header {
+      padding: 4rem 0;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .header-content h1 {
+      font-size: 4rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .header-content p {
+      font-size: 1.5rem;
+      font-weight: 500;
+      margin-bottom: 2rem;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    .header-content .social-links {
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .header-content .social-links a {
+      color: #fff;
+      font-size: 2rem;
+      margin: 0 1rem;
+      transition: color 0.3s ease-in-out;
+    }
+
+    .header-content .social-links a:hover {
+      color: #ccc;
+    }
+
+    .header-image {
+      max-width: 300px;
+      margin-top: 2rem;
+      animation: fadeIn 2.5s ease-in-out;
+    }
+
+    #about {
+      padding: 4rem 0;
+    }
+
+    #about h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      text-align: center;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .about-sections {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    .about-sections p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+
+    #portfolio {
+      padding: 4rem 0;
+    }
+
+    #portfolio h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      text-align: center;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    .portfolio-item {
+      overflow: hidden;
+      border-radius: 0.5rem;
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .portfolio-item:hover {
+      transform: translateY(-0.5rem);
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .portfolio-item h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      padding: 1rem;
+      background-color: #fff;
+      text-align: center;
+      color: #191970;
+    }
+
+    #skills {
+      padding: 4rem 0;
+    }
+
+    #skills h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      text-align: center;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .skill-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    .skill-item {
+      background-color: #fff;
+      border-radius: 0.5rem;
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+      text-align: center;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .skill-item:hover {
+      transform: translateY(-0.5rem);
+    }
+
+    .skill-item i {
+        color:#171717;
+      font-size: 3rem;
+      color: #191970;
+      margin-bottom: 1rem;
+    }
+
+    .skill-item h3 {
+        color:#171717;
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .skill-item p {
+        color:#171717;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 2rem 0;
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 1rem;
+      font-weight: 500;
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  
+  .lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  .lightbox.active {
+    display: flex;
+    opacity: 1;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .lightbox img {
+    max-width: 90%;
+    max-height: 90vh;
+    transform: scale(0.9);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .lightbox.active img {
+    transform: scale(1);
+  }
+
+  .close-lightbox {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+    z-index: 1001;
+  }
+
+  .portfolio-item img {
+    cursor: pointer;
+  }
+  </style>
+</head>
+<body>
+  <div class="lines">
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+  </div>
+
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <h1>My Works</h1>
+        <p>Experienced 3D Modeler and Texture Artist</p>
+        <div class="social-links">
+          <a href="https://discord.com/users/928700706028920842" target="_blank"><i class="fab fa-discord"></i></a>
+          <a href="https://www.roblox.com/users/43247618/profile" target="_blank"><i class="fab fa-roblox"></i></a>
+          <a href="https://paypal.me/connor400343" target="_blank"><i class="fab fa-paypal"></i></a>
+        </div>
+        <img src="c:\Users\meeng\Downloads\scr images\KCO3.png" alt="Fusca Works Logo" class="header-image">
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="about">
+      <div class="container">
+        <h2>About Me <i class="fab fa-roblox"></i></h2>
+        <div class="about-sections">
+          <div>
+            <p>
+              As an experienced modeler, I focus on using Blender to create 3D models and virtual objects for various applications, such as games and product design. With lots of practice, I continue to hone my skills through online tutorials.
+            </p>
+          </div>
+          <div>
+            <p>
+              I'm actively looking for opportunities to collaborate and expand my portfolio, specializing in the creation and texturing of high-quality 3D models using Substance Painter. My passion for 3D art drives me to continuously improve and explore new techniques.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="portfolio">
+        <div class="container">
+          <h2>My Portfolio</h2>
+          <div class="portfolio-grid">
+            <div class="portfolio-item">
+              <img src="scr images/chriss vecotr.jpg" alt="3D Model 1" class="portfolio-image">
+              <h3>Chriss Vector</h3>
+            </div>
+            <div class="portfolio-item">
+              <img src="scr images/revolver.jpg" alt="3D Model 2" class="portfolio-image">
+              <h3>Revolver</h3>
+            </div>
+            <div class="portfolio-item">
+              <img src="scr images/conner-reder-result-of-sesert-eagel-watermarked.jpg" alt="3D Model 3" class="portfolio-image">
+              <h3>Desert Eagel</h3>
+            </div>
+            <div class="portfolio-item">
+              <img src="scr images/connor-cart-final.jpg" alt="3D Model 1" class="portfolio-image">
+              <h3>Mining Cart</h3>
+            </div>
+            <div class="portfolio-item">
+              <img src="c:\Users\meeng\Downloads\scr images\tnt box.jpg" alt="3D Model 2" class="portfolio-image">
+              <h3>TNT</h3>
+            </div>
+            <div class="portfolio-item">
+              <img src="scr images/ugc figure.jpg" alt="3D Model 3" class="portfolio-image">
+              <h3>UGC</h3>
+            </div>
+            <div class="portfolio-item">
+              <img src="scr images/ww2 helmet.jpg" alt="3D Model 1" class="portfolio-image">
+              <h3>UGC</h3>
+            </div>
+            <div class="portfolio-item">
+              <img src="c:\Users\meeng\OneDrive\Pictures\Screenshots\Screenshot 2024-10-31 134438.png" alt="3D Model 2" class="portfolio-image">
+              <h3>E-Girl (rigged)</h3>
+            </div>
+            <div class="portfolio-item">
+              <img src="c:\Users\meeng\Downloads\scr images\bunnies.jpg" alt="3D Model 3" class="portfolio-image">
+              <h3>Bunnies (rigged)</h3>
+            </div>
+            <div class="portfolio-item">
+              <img src="c:\Users\meeng\Downloads\scr images\lotus emira.jpg" alt="3D Model 1" class="portfolio-image">
+              <h3>Lotus Emira</h3>
+            </div>
+            <div class="portfolio-item">
+              <img src="c:\Users\meeng\Downloads\scr images\connor-astion-martin-render-result.jpg" alt="3D Model 2" class="portfolio-image">
+              <h3>Astin Martin</h3>
+            </div>
+            <div class="portfolio-item">
+              <img src="c:\Users\meeng\Downloads\scr images\mercades g wagon.jpg" alt="3D Model 3" class="portfolio-image">
+              <h3>Mercades G wagon</h3>
+            </div>
+            <div class="portfolio-item">
+              <img src="c:\Users\meeng\Downloads\scr images\speeddway bike.jpg" alt="3D Model 1" class="portfolio-image">
+              <h3>Speedway Bike</h3>
+            </div>
+            <div class="portfolio-item">
+              <img src="c:\Users\meeng\Downloads\scr images\connor-austin-tilly-screeny.jpg" alt="3D Model 2" class="portfolio-image">
+              <h3>Austin Tilly</h3>
+            </div>
+            <div class="portfolio-item">
+              <img src="c:\Users\meeng\Downloads\scr images\ugc awoed.jpg" alt="3D Model 3" class="portfolio-image">
+              <h3>UGC</h3>
+            </div>
+            <div class="portfolio-item">
+              <img src="c:\Users\meeng\OneDrive\Pictures\Screenshots\Screenshot 2024-10-14 181711.png" alt="3D Model 1" class="portfolio-image">
+              <h3>Morphs</h3>
+            </div>
+            <div class="portfolio-item">
+              <img src="c:\Users\meeng\OneDrive\Pictures\Screenshots\Screenshot 2024-10-15 222420.png" alt="3D Model 2" class="portfolio-image">
+              <h3>Axe</h3>
+            </div>
+            <div class="portfolio-item">
+              <img src="c:\Users\meeng\OneDrive\Pictures\Screenshots\Screenshot 2024-10-14 184029.png" alt="3D Model 3" class="portfolio-image">
+              <h3>Yellow Horns</h3>
+            </div>
+          </div>
+        </div>
+      </section>
+          
+          <!-- Add more portfolio items here -->
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+          <h2>My Skills</h2>
+          <div class="skill-grid">
+            <div class="skill-item">
+              <i class="fas fa-cubes"></i>
+              <h3>3D Modeling</h3>
+              <p style="color: black;">I specialize in creating high-quality 3D models using Blender, focusing on detailed and realistic designs.</p>
+            </div>
+            <div class="skill-item">
+              <i class="fas fa-paint-brush"></i>
+              <h3>Texturing</h3>
+              <p style="color: black;">I utilize Substance Painter to apply detailed and visually appealing textures to my 3D models, enhancing their realism.</p>
+            </div>
+            <div class="skill-item">
+              <i class="fas fa-gamepad"></i>
+              <h3>Game Assets</h3>
+              <p style="color: black;">My expertise extends to the development of game-ready assets that can be seamlessly integrated into various projects.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+  </main>
+  
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 Fusca Works. All rights reserved.</p>
+      <p>Design made by nibloo</p>
+    </div>
+  <div class="lightbox">
+    <span class="close-lightbox">&times;</span>
+    <img src="" alt="Fullscreen Image">
+  </div>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const lightbox = document.querySelector('.lightbox');
+      const lightboxImg = lightbox.querySelector('img');
+      const closeBtn = lightbox.querySelector('.close-lightbox');
+      const portfolioImages = document.querySelectorAll('.portfolio-item img');
+  
+      portfolioImages.forEach(img => {
+        img.addEventListener('click', () => {
+          lightboxImg.src = img.src;
+          lightbox.classList.add('active');
+        });
+      });
+  
+      function closeLightbox() {
+        lightbox.classList.remove('active');
+      }
+  
+      closeBtn.addEventListener('click', closeLightbox);
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) {
+          closeLightbox();
+        }
+      });
+  
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          closeLightbox();
+        }
+      });
+    });
+  </script>
+</body>
+</html>
